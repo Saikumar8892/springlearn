@@ -1,0 +1,115 @@
+Agenda:
+Introduction
+Plain JDBC limitations
+Spring JDBC/DAO Advantages
+Working with different Data Sources
+JdbcTemplate
+Spring JDBC/DAO with Annotations
+---------------------------------------------------------------------------------------------------------------
+Spring DAO: Data Access Object
+
+In DAO layer will be having operations with respect to Database
+
+JDBC: 
+1.Connecting the Driver
+2.Establish the Connection
+3.Create Statement Object
+4.Execute the SQL Query
+5.Iterate the Resultset
+6.Close the Connection
+
+->Above steps throws SQL Exception(Checked Exception)
+
+Rod Johnson -> API -> JDBCTemplate
+
+Problems of JDBC API:
+->We need to write a lot of code before and after executing the query.
+->We need to perform exception handling on the database logic.
+->Repeatation of all these codes when we change the database is a time consuming
+
+JdbcTemplate -> It is class
+->org.springframework.dao
+->thread-safe
+->Abstraction for JDBC API
+
+Advantages of JDBCTemplate:
+->Creating and Closing Connection
+->We can perform all the database operations
+->It will handle the exception and provide the exception messages by the help of exception classes which are mentioned in the dao package
+
+--------------------------------------------------------------------------------------------------------------
+DataSource (Interface)
+->Attribute in JdbcTemplate class
+->javax.sql
+
+DriverManagerDataSource(class)
+->It has information such as driver, url , username, password
+->org.springframework.jdbc.datasource
+
+Dependencies required:
+
+ <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-core</artifactId>
+    <version>5.3.25</version>
+</dependency>
+    
+    <dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-context</artifactId>
+    <version>5.3.25</version>
+</dependency>
+
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-jdbc</artifactId>
+    <version>5.3.26</version>
+</dependency>
+
+<dependency>
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+    <version>8.0.18</version>
+</dependency>
+    
+</dependencies>
+
+---------------------------------------------------------------------------------------------------------------
+create a Database -> use mphasisdb;
+
+create a table:
+
+create table product_details(
+id int not null auto_increment,
+name varchar(255) not null,
+price double,
+manufacturing_date date,
+primary key(id));
+
+--------------------------------------------------------------------------------------------------------------
+There are 3 interfaces:
+
+RowMapper
+->extract multiple rows
+->mapRow(ResultSet rs,int rownum)
+->no need to call rs.next()
+
+Fetch the record , once the record is fetched the details is getting added to ArrayList
+
+ResultSetExtractor  -> return type is T (single object)
+extracts single row
+->extractData(ResultSet rs)
+->Need to do rs.next()
+
+
+RowCallbackHandler -> void
+
+

@@ -1,0 +1,44 @@
+Spring Bean Autowiring
+Injection with @Autowire
+Java Based Configuration (@Configuration)
+--------------------------------------------------------------------------------------------------------------
+Autowiring to inject the object dependancy implicitly. It internally uses setter/constructor
+
+Advantages:
+->It can significally reduce the need to specify properties/constructors
+
+Modes of Autowiring:
+1.No -> Default (No Autowiring)
+2.byName -> spring looks for a bean with same name as the property that needs to be autowired
+3.byType -> Refer to class package 
+Note: If there are two bean object, even though the name is different but type is same we get 
+UnsatisfiedDependancyException
+
+4.constructor ->the class hould have constructor and in config.xml file constructor-arg should be present.
+
+Spring Annotation:
+Are Annotation better than XML for configuring Spring?
+It depends on type of application developed
+
+->Annotations are implicitly registered by including:
+-><context:annotation-config/>
+-><context:component:scan/>
+
+Basic Annoation:
+@Component -> Replacement for writing Bean definition tag inside XML
+@Autowire -> Used for Automatic Dependancy injection
+@Qualifier -> Resolve the Autowiring conflict when we have multiple bean definition
+@Scope
+
+Java-Based Configuration: When we have 0 XML Approach
+
+@Configuration + @Bean
+
+@Bean -> The method instantiate, configures and initializes a new object to be managed by the Spring ioc container
+
+@Configuration -> Source of Bean definitions
+
+
+
+
+

@@ -1,0 +1,62 @@
+Agenda:
+Introduction of Aspect Oriented Programming (The Proxy Pattern)
+AOP Terminology
+Types of Advice
+---------------------------------------------------------------------------------------------------------------
+AOP : Aspect Oriented Programming
+
+Used for Logging, Transaction Management etc..
+
+Terminologies:
+
+Aspect:Service
+
+Advice:Service Provider(Actions to be take)
+
+Pointcut:Condition to execute aspects for business(where and when i must execute. where i must stop)
+
+Join Point:Method in execution
+
+Target Object: Object created by Developer
+
+Proxy Object: Object created by AOP
+
+Dependencies:
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-aop</artifactId>
+    <version>5.3.25</version>
+</dependency>
+
+<dependency>
+    <groupId>org.aspectj</groupId>
+    <artifactId>aspectjrt</artifactId>
+    <version>1.8.9</version>
+</dependency>
+
+<dependency>
+    <groupId>org.aspectj</groupId>
+    <artifactId>aspectjweaver</artifactId>
+    <version>1.8.9</version>
+</dependency>
+
+Inside Config File:
+<aop:aspectj-autoproxy/>
+<context:annotation-config/>
+<context:component-scan base-package="com.mphasis.day04"></context:component-scan>
+
+---------------------------------------------------------------------------------------------------------------
+Advice Types:
+
+->Before: Advice type which is executed before join point
+
+->After: Advice type which is executed after join point
+
+->AfterReturning: If a method returns some value
+
+->AfterThrowing: Advice to be executed after throwing an exception
+
+->Around: Advice executed before and after
+
+
+

@@ -1,0 +1,115 @@
+Agenda:
+Spring Introduction
+Declaring and Managing Beans
+BeanFactory vs ApplicationContext
+Dependencies and Dependency Injection (DI)
+Examining Dependencies
+Dependency Inversion / Dependency Injection (DI)
+XML Configuration of DI
+
+Introduction to Spring:
+---------------------------------------------------------------------------------------------------------------
+Spring is a Framework:
+
+1.It is Light weight : does not depend on OS -> It used JDK Libraries with simple Spring Jar files
+2.It is Loosely Coupled:
+
+Pojo class:A class without extending or w/o implementing another class 
+
+IoC Container:can read inputs from XML document.Then it can pass required parameters to Pojo class
+
+IoC -> Inversion of control
+
+Container:
+->Read XML file
+->create instances of XML declaration
+->Manage Life cycle
+->Pass Dynamic parameters to Bean class
+
+There are Two types of Ioc Containers:
+1.Core Container
+2.J2EE Container
+
+->Read XML file
+->create instances of XML declaration
+->Pass Dynamic parameters to Pojo class to make your layers loosely coupled
+
+I have created classes and Functions  -> I will tell spring to create objects and call methods
+
+BeanFactory                         ApplicationContext
+It is a Fundamental Container       Advanced Container which extends Bean Factory and add some additional
+with basic functinality             features
+
+->Standalone Appliaction            Web Applications
+
+->Singleton and Prototype           It supports Singleton, Prototype,Request etc..
+
+->It does not support Annotation    Supports Annotation and XML
+only XML  
+
+Dependencies:
+    <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    
+    <dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-core</artifactId>
+    <version>5.3.25</version>
+</dependency>
+    
+    <dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-context</artifactId>
+    <version>5.3.25</version>
+</dependency>
+
+<dependency>
+    <groupId>javax.annotation</groupId>
+    <artifactId>javax.annotation-api</artifactId>
+    <version>1.3.2</version>
+</dependency>
+
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-aop</artifactId>
+    <version>5.3.25</version>
+</dependency>
+
+<dependency>
+    <groupId>org.aspectj</groupId>
+    <artifactId>aspectjrt</artifactId>
+    <version>1.8.9</version>
+</dependency>
+
+<dependency>
+    <groupId>org.aspectj</groupId>
+    <artifactId>aspectjweaver</artifactId>
+    <version>1.8.9</version>
+</dependency>
+--------------------------------------------------------------------------------------------------------------
+Dependancy Injection:
+
+Features of Ioc:
+
+1.Pojo Instantiation
+2.Managing Life Cycle
+3.Pass required parameters from xml file to Pojo class -> Dependancy Injection
+ 
+
+There are Two ways to implement DI:
+1.Setter Injection  -> <property>
+<p:> -> property Injection
+2.Constructor Injection -> <constructor-arg>
+<c:> Constrcutor Injection
+
+Spring Configuration Metadata:
+->XML Approach
+->Annotation
+->Java-Based configuration file
+
+
